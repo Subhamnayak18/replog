@@ -51,13 +51,13 @@ Import validates the entire file before writing and merges both sections in one 
 
 ## GitHub Pages deployment
 
-No site has been deployed by this project delivery. Use a public repository for GitHub's free public Pages hosting. Your app's records remain on each visitor's device, outside the repository.
+Source: https://github.com/Subhamnayak18/replog (public). GitHub Pages is configured to deploy through GitHub Actions, with automatic deployment enabled. Your app’s records remain on each visitor’s device, outside the repository.
 
 1. Create a public GitHub repository. Put the **contents of this project folder** (including `.github`, `public`, `src`, `package-lock.json`, and the config files) at its root. Do not upload `node_modules` or `dist`.
 2. Commit and push to the `main` branch. In repository **Settings → Pages → Build and deployment**, choose **GitHub Actions**.
 3. Open **Actions → Check RepLog and optionally deploy → Run workflow**, select **Deploy to GitHub Pages**, and run it. It installs with the lockfile, runs tests, builds, and publishes `dist`. Leave the checkbox off to run checks only.
 4. For automatic deployment after each push, add a repository Actions variable named `ENABLE_PAGES` with value `true` in **Settings → Secrets and variables → Actions → Variables**, after Pages is configured. Without this variable, pushes still run all tests and build checks but skip deployment.
-5. Use the actual URL GitHub reports in the deployment/environment. No URL is assumed here. The repository is currently private and Pages is not enabled; the normal checks run independently of hosting.
+5. Use the actual URL GitHub reports in the deployment/environment. No URL is assumed here. The repository is public and GitHub Pages is enabled; the normal checks still run independently of hosting.
 
 The workflow derives `VITE_BASE_PATH` as `/REPOSITORY/` for a project site and `/` for a `*.github.io` repository. Both routes use hashes (`#/workouts`, `#/notes`), so direct links and reloads never ask Pages for a missing SPA route. Vite assets, manifest scope, start URL and the worker scope use the same base. No `404.html` redirect is needed.
 

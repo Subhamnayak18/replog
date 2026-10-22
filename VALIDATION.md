@@ -12,4 +12,4 @@ The production worker checks execute the generated worker in an isolated JavaScr
 
 Real-browser visual, installation and airplane-mode verification could not be completed because the browser preview tool blocked the local preview URL under its URL security policy. No workaround was used. The simulated DOM/IndexedDB/worker checks passed, but they do not certify device-specific installation behavior. Follow the manual offline/install checklist in README.md on your phone or browser after serving the production build.
 
-Source repository: https://github.com/Subhamnayak18/replog (private). No live site has been deployed. GitHub Pages setup and the deployment workflow are included; free Pages hosting requires a public repository.
+Source repository: https://github.com/Subhamnayak18/replog (public). GitHub Pages is configured with automatic deployment enabled. See the repository’s Actions tab for the current deployment status and published URL.
