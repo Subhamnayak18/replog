@@ -24,6 +24,12 @@ Open the preview address printed by Vite, normally `http://127.0.0.1:4173/`. Do 
 
 ## Workouts
 
+### Personal PIN screen
+
+RepLog now opens with a personal PIN screen. Enter the PIN configured for this build to unlock, then it displays **Welcome Subham Nayak**. Tap **Lock** or reload the page to lock it again. The unlocked state stays only in memory; no “remember me” flag is saved. Locking does not delete records. The screen works offline once the app has been cached after unlocking.
+
+This is a **convenience screen lock**, not secure authentication. A salted PBKDF2 verifier is bundled in the public app rather than a plaintext PIN. A determined person can still bypass client-side code or guess a four-digit PIN. IndexedDB and JSON backups are not encrypted. The public website remains accessible to other visitors, who have their own local journal. True restricted access requires a server-side authentication service or access-controlled hosting. Do not treat the PIN screen as protection for sensitive information.
+
 Choose **Log a workout**, a body part, exercise name, max weight in kg, reps **at that weight**, and date. Use 0 kg for bodyweight exercises. Dates default to the device's local date. Records support editing and confirmed deletion. Log each session as a new record to retain history.
 
 Filter by body part and search exercise names. Click an exercise name or its history icon to see dated entries and the highest recorded weight. Names match without case or surrounding whitespace, within the same body part. Renaming an exercise or changing its body part moves that record to its new history group. Best weight is not an estimated one-rep max; compare reps as well. Overview counts distinct workout dates, total records, and distinct exercises per body part.

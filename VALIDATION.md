@@ -2,7 +2,7 @@
 
 Verified in the delivery environment with Node.js 24.21.0 and npm 11.19.0.
 
-- `npm test`: **9 tests passed** across 2 files. Covers workout/note create/edit/delete, filtering/search, history, reload persistence, validation, transactional backup roundtrip, idempotent import, newest-edit conflict resolution, invalid-file rejection, file import confirmation and exported JSON contents.
+- `npm test`: **12 tests passed** across 3 files. Covers workout/note create/edit/delete, filtering/search, history, reload persistence, validation, transactional backup roundtrip, idempotent import, newest-edit conflict resolution, invalid-file rejection, file import confirmation and exported JSON contents. Also covers the personal PIN verifier, incorrect PIN rejection, welcome message, relocking, fresh-session locking and verification error recovery.
 - `npm run build`: **passed**, with a reproducible package lockfile.
 - `npm run test:pwa`: **2 tests passed** against the root-path production build.
 - Rebuilt with `VITE_BASE_PATH=/replog/`: **passed**; the same **2 PWA tests passed** against that subfolder build.
