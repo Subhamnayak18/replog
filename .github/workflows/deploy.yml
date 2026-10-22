@@ -1,14 +1,17 @@
-name: Deploy RepLog to GitHub Pages
+name: Check RepLog and optionally deploy
 on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      deploy_pages:
+        description: Deploy to GitHub Pages (enable Pages in repository settings first)
+        type: boolean
+        default: false
 permissions:
   contents: read
-  pages: write
-  id-token: write
 concurrency:
-  group: pages
+  group: replog-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   build:
@@ -32,17 +35,22 @@ jobs:
           fi
       - run: npm run build
       - run: npm run test:pwa
-      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
   deploy:
     needs: build
+    if: ${{ vars.ENABLE_PAGES == 'true' || (github.event_name == 'workflow_dispatch' && inputs.deploy_pages) }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - uses: actions/configure-pages@v5
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
